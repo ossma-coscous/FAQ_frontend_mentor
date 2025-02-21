@@ -1,0 +1,171 @@
+/* Reset default margin and padding */
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    margin: 0;
+    background-color: #f9f9f9; /* Fallback background color */
+    min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+    position: relative; /* Make body a positioning context for child elements */
+    font-family: 'Poppins', sans-serif; /* Modern font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Background image at the top */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30%; /* Adjust the height of the background image */
+    background-image: url(/exampls/exer/background-pattern-desktop.svg); /* Replace with your image path */
+    background-size: cover; /* Cover the top portion */
+    background-position: top center; /* Align the image to the top */
+    z-index: -1; /* Place the image behind the content */
+
+}
+
+/* Bottom background color */
+body::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70%; /* Adjust the height of the bottom background */
+    background-color: #ffffff; /* White background color */
+    z-index: -1; /* Place the overlay behind the content */
+    background-color: #877791 !important;
+
+}
+
+/* Container styling */
+.container {
+    width: 95%; /* Full width on mobile */
+    max-width: 700px; /* Limit the width for larger screens */
+    background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    padding: 20px; /* Add some padding inside the card */
+    z-index: 2; /* Ensure the card is above the background image */
+}
+
+/* Star section (FAQ heading) */
+.star {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between icon and heading */
+    margin-bottom: 20px;
+}
+
+.star h1 {
+    font-size: 3.5rem; /* Larger font size for heading */
+    color: #111130; /* Dark text color */
+    margin: 0; /* Remove default margin */
+}
+
+/* Wrapper (FAQ item) */
+.wrapper {
+    background-color: white;
+    margin-bottom: 0; /* No space between FAQ items */
+    padding: 15px 20px;
+    border-radius: 5px;
+}
+
+/* Toggle (FAQ question) */
+.toggle {
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 23px;
+    color: #111130; /* Black text color */
+    font-weight: 600;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+/* Ensure the title (h2) stays black when clicked or focused */
+/*  */
+
+.toggle h2:active,
+.toggle h2:focus {
+    color: #111130; /* Keep text black when clicked or focused */
+}
+
+.toggle img {
+    width: 34px; /* Icon size */
+    height: 34px;
+}
+
+/* Content (FAQ answer) */
+.content {
+    position: relative;
+    font-size: 16px;
+    text-align: justify;
+    line-height: 1.6;
+    height: 0;
+    color: #877791;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    word-wrap: break-word; /* Allow long words to break into the next line */
+    hyphens: auto; /* Add hyphens for better text wrapping */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    body::before {
+        height: 25%; /* Smaller height for the background image on mobile */
+    }
+
+    body::after {
+        height: 75%; /* Larger height for the bottom background on mobile */
+    }
+
+    .container {
+        width: 90%;
+        padding: 20px;
+        box-shadow: none;
+        position: absolute;
+        top: 105px;
+    }
+
+    .star {
+        margin-bottom: 10px; /* Reduce space between elements */
+    }
+
+    .star h1 {
+        font-size: 2rem; /* Smaller heading on mobile */
+    }
+
+    .wrapper {
+        margin-bottom: 0; /* No space between FAQ items */
+        padding: 15px; /* Add padding on mobile */
+        box-shadow: none; /* Remove box shadow on mobile */
+    }
+
+    .toggle {
+        font-size: 1rem; /* Smaller font size for questions */
+        font-weight: 600; /* Make the text slightly bolder */
+        text-align: left;
+    }
+
+    .toggle h2 {
+        font-size: 1rem; /* Adjust font size for better readability */
+    }
+
+    .content {
+        font-size: 0.8rem; /* Smaller font size for answers */
+        color: grey;
+    }
+}
