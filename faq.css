@@ -64,10 +64,12 @@ body::after {
 }
 
 .wrapper {
-    background-color: white;
+  background-color: none;
     margin-bottom: 0;
     padding: 15px 20px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
+    border-bottom: 1px solid #8080802b;
+    padding-inline: 0px !important;
 }
 
 .toggle {
